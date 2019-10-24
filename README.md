@@ -32,5 +32,5 @@ At this point you can use any method you feel comfortable with e.g.(curl or Post
 Instead of creating an actual locahost instance of a MySQL database and using 'mysql2/promise' to connect and interrogate it, I decided to keep the local setup of this exercise easy and concise ny creating a "Dummy Database" held within an instance object.  This object only persists for as long as the project is running on the assigned port.
 
 ### Validation
-I used this exercise to show that validation of inputs to a post is important and setup some simple validations.  Since the task didn't cover a format for the 'dob' field and it is also possible to create custom checks using 'express-validator' I decided to keep it simply as a mandatory field check.
+Since the task didn't cover a format for the 'dob' I created a custom one to checkfor yyyyy-mm-dd.
 

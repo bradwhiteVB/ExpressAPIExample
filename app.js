@@ -1,3 +1,5 @@
+const { isValidDate } = require("./src/utils/isValidDate");
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -57,7 +59,7 @@ app.get('/users/:id?', (req, res) => {
 app.post('/users', [
   check('name').exists().isLength({ min: 3 }),
   check('email').exists().isEmail(),
-  check('dob').exists()
+  check('dob').custom(isValidDate).withMessage('The date must be in YYYY-MM-DD format')
 ], (req, res) => {
  
   try{
@@ -122,3 +124,4 @@ module.exports = app.listen(port, () => {
   console.log('Use http://127.0.0.1:3000/user/{ID} [DELETE]-> Delete specific user');
   console.log('Use http://127.0.0.1:3000/user [POST] -> Create new user (Send in body)');
 });
+

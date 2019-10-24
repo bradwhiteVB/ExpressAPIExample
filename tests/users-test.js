@@ -52,7 +52,7 @@ describe('Unit testing the /users POST route', function() {
     it('should return OK status', async function() {
         const response = await request(app)
             .post('/users')
-            .send({name: 'john', email:'blah@test.com', dob: '19990101'})
+            .send({name: 'john', email:'blah@test.com', dob: '2000-10-12'})
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200);
