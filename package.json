@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha tests/ --exit",
-    "start": "node app.js"
+    "start": "node app.js",
+    "devstart": "nodemon app.js"
   },
   "author": "B White",
   "license": "ISC",
@@ -18,6 +19,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^6.2.1",
+    "nodemon": "^1.19.4",
     "supertest": "^4.0.2"
   }
 }
