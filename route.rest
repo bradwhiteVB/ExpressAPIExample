@@ -1,0 +1,21 @@
+GET http://127.0.0.1:3000/users
+
+###
+
+GET http://127.0.0.1:3000/users/1
+
+###
+
+DELETE http://127.0.0.1:3000/users/1
+
+
+###
+
+POST http://127.0.0.1:3000/users
+Content-Type: application/json
+
+{
+  "name":"Brad WHite 2",
+  "email":"brad@world.com",
+  "dob":"2000-12-12"
+}

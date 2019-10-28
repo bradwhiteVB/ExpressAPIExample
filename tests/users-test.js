@@ -24,25 +24,34 @@ describe('Unit testing the /users GET route', function() {
         assert.equal(response.status, 200);
     });
 
+    it('should return 404 status and JSON payload - no user', async function() {
+        const response = await request(app)
+            .get('/users/1')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/);;
+        assert.equal(response.status, 404);
+    });
+
 });
 
 describe('Unit testing the /users DELETE route', function() {
 
-    it('should return 400 status and JSON response', async function() {
+    it('should return 404 status and JSON response', async function() {
         const response = await request(app)
             .delete('/users/24')
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
-            .expect(400);
-        assert.equal(response.status, 400);
+            .expect(404);
+        assert.equal(response.status, 404);
     });
 
-    it('should return 204 status and no response pn success', async function() {
+    it('should return 200 status and simple json success messge', async function() {
         const response = await request(app)
             .delete('/users/0')
-            // .set('Accept', 'application/json')
-            .expect(204);
-        assert.equal(response.status, 204);
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(200);
+        assert.equal(response.status, 200);
     });
 
 });
@@ -55,8 +64,8 @@ describe('Unit testing the /users POST route', function() {
             .send({name: 'john', email:'blah@test.com', dob: '2000-10-12'})
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
-            .expect(200);
-        assert.equal(response.status, 200);
+            .expect(201);
+        assert.equal(response.status, 201);
     });
 
     it('should return 422 status - missing name', async function() {
