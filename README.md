@@ -28,9 +28,10 @@ At this point you can use any method you feel comfortable with e.g.(curl or Post
 
 
 ## Additional info
+### Restructure
+This project was restructured to adhere closer to best practice.
+
 ### Dummy Database used
-Instead of creating an actual locahost instance of a MySQL database and using 'mysql2/promise' to connect and interrogate it, I decided to keep the local setup of this exercise easy and concise ny creating a "Dummy Database" held within an instance object.  This object only persists for as long as the project is running on the assigned port.
+Instead of creating an actual locahost instance of a MySQL or MongoDB database and using 'mysql2/promise' or 'mongoose' to connect and interrogate it, I decided to keep the local setup of this exercise easier by creating a "Dummy Database" held within an instance object.
 
-### Validation
-Since the task didn't cover a format for the 'dob' I created a custom one to checkfor yyyyy-mm-dd.
-
+This is a current issue for me in that the data returned doesn't mimic an array of objects like real database libraries. So it will be the next thing changed.  Either that or I will add in MongoDB support since it is inherently easy to create schemas and models with inbuilt validation.
